@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
+    #This is the root path of the app
     path('ticket_app/', include('ticket_app.urls')),
     path('admin/', admin.site.urls),
 ]
