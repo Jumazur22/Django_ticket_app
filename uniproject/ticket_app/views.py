@@ -11,6 +11,7 @@ def create_ticket(request):
     form = TicketForm(request.POST or None)
     if form.is_valid():
         form.save()
+        form = TicketForm()
 
     context = {
         'form' : form
