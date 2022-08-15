@@ -3,6 +3,8 @@
 
 <head>
     {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.24.0/dist/full.css" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet" type="text/css" />
 </head>
@@ -10,7 +12,11 @@
 {% block nav %}
     {% comment %} Here is the navigationbar with daisyui format  {% endcomment %}
     <div class="navbar bg-neutral text-neutral-content">
-        <li>{% block nav-home %}<a class="btn btn-ghost normal-case text-xl" href="{% url 'index' %}">Home</a>{% endblock %}</li>
-        <li>{% block nav-opencase %}<a class="btn btn-ghost normal-case text-xl" href="{% url 'create_ticket' %}">Open Case</a>{% endblock %}</li>
+        <li>
+            <a class="btn btn-ghost normal-case text-xl" href="{% url 'index' %}">Home</a>
+        </li>
+        <li>
+            <a class="btn btn-ghost normal-case text-xl" href="{% url 'create_ticket' %}">Open Case</a>
+        </li>
     </div>
 {% endblock %}

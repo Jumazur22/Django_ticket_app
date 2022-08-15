@@ -5,7 +5,7 @@ from .models import Ticket
 from .forms import TicketForm
 
 def index(request):
-    return render(request, "ticket/index.html")    
+    return render(request, "index.html")    
 
 def create_ticket(request):
     form = TicketForm(request.POST or None)
@@ -16,5 +16,5 @@ def create_ticket(request):
     context = {
         'form' : form
     }
-    return render(request, "ticket/create_ticket.html", context)
+    return render(request, "create_ticket.html", context)
     
