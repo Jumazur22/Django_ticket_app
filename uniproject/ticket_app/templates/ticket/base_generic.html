@@ -8,10 +8,11 @@
 </head>
 
 <body>
+    {% comment %} Here is the navigationbar with daisyui format  {% endcomment %}
+    {% block nav %}
     <div class="navbar bg-neutral text-neutral-content">
-        <a class="btn btn-ghost normal-case text-xl">Home</a>
-        <a class="btn btn-ghost normal-case text-xl">Open Case</a>
+        <li>{% block nav-home %}<a class="btn btn-ghost normal-case text-xl" href="{% url 'index' %}">Home</a>{%endblock%}</li>
+        <li>{% block nav-form %}<a class="btn btn-ghost normal-case text-xl" href="{% url 'create_ticket' %}">Open Case</a>{%endblock%}</li>
     </div>
+    {% endblock %}
 </body>
-
-{% block title%} Help Zone {% endblock%}
