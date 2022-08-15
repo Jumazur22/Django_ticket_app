@@ -5,7 +5,7 @@ from .models import Ticket
 from .forms import TicketForm
 
 def index(request):
-    return HttpResponse("Hello")    
+    return render(request, "ticket/index.html")    
 
 def create_ticket(request):
     form = TicketForm(request.POST or None)
