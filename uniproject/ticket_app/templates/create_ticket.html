@@ -3,9 +3,9 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-<form method='POST'> {% csrf_token %}
+<form  class="flex flex-col justify-center items-center" method='POST'> {% csrf_token %}
     {{ form|crispy }}
-    <input type='submit' value='Save' />
+    <input class="btn" type='submit' value='Save'/>
 </form>
 
-{% endblock %}z
+{% endblock %}
