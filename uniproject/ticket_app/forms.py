@@ -38,6 +38,7 @@ class NewUserForm(UserCreationForm):
             "password2"
         )
     
+    # This saves the newly register user details
     def save(self, commit=True):
         user = super(NewUserForm, self).save(commit=False)
         user.email = self.cleaned_data['email']
