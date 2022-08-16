@@ -10,7 +10,7 @@ from .forms import TicketForm, NewUserForm
 def index(request):
     return render(request, "index.html")    
 
-# This function checks if the form is valid and if its posted
+# This function checks if the form is valid and if it's being posted
 # if so then the form gets saved to the database
 def create_ticket(request):
     form = TicketForm(request.POST or None)
