@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from ticket_app import views
+
 urlpatterns = [
     #This is the root path of the app
+    path("", views.register_request, name="register"),
     path('ticket_app/', include('ticket_app.urls')),
     path('admin/', admin.site.urls),
 ]
