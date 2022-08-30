@@ -20,7 +20,6 @@ from ticket_app import views
 
 urlpatterns = [
     #This is the root path of the app
-    path("", views.register_request, name="register"),
-    path('ticket_app/', include('ticket_app.urls')),
+    path('', include('ticket_app.urls')),
     path('admin/', admin.site.urls),
 ]
