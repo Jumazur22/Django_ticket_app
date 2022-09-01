@@ -66,6 +66,17 @@ def logout_request(request):
     return redirect("register")
 
 def update_ticket(request , pk):
-    form = TicketForm()
-    context = {"form":form}
+    # Pre-fills the ticket form based on the ticket id
+    ticket = Ticket.objects.get(id=pk)
+    form = TicketForm(instance=ticket)
+    
+    # This saves the update form and checks if its valid
+    form = TicketForm(request.POST or None , instance=ticket)
+    if form.is_valid():
+        form.save()
+        form = TicketForm()
+        return redirect("/index")
+    context = {
+        "form":form
+    }
     return render(request, "create_ticket.html" ,context)
