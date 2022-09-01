@@ -9,6 +9,7 @@ from .forms import TicketForm, NewUserForm
 
 # Here its rendering the index.html view
 def index(request):
+    # Here its taking all the object from the Ticket model so that they can be rendered in index
     tickets = Ticket.objects.all()
     return render(request, "index.html" , {"tickets":tickets})    
 
