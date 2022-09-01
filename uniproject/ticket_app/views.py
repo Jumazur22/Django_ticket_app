@@ -9,7 +9,8 @@ from .forms import TicketForm, NewUserForm
 
 # Here its rendering the index.html view
 def index(request):
-    return render(request, "index.html")    
+    tickets = Ticket.objects.all()
+    return render(request, "index.html" , {"tickets":tickets})    
 
 # This function checks if the form is valid and if it's being posted
 # if so then the form gets saved to the database

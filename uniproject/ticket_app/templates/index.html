@@ -7,14 +7,21 @@
         {% comment %} Headings {% endcomment %}
         <thead>
             <tr>
-                <th></th>
                 <th>Issue Type</th>
                 <th>Issue Description</th>
                 <th>Date and Time</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                
+            {% for i in tickets %}
+                <tr>
+                    <td>{{i.issue_type}}</td>
+                    <td>{{i.issue_description}}</td>
+                    <td>{{i.date}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
 {% endblock %}
