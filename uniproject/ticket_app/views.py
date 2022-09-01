@@ -64,3 +64,8 @@ def logout_request(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
     return redirect("register")
+
+def update_ticket(request , pk):
+    form = TicketForm()
+    context = {"form":form}
+    return render(request, "create_ticket.html" ,context)

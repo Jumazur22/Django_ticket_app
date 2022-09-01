@@ -9,4 +9,5 @@ urlpatterns = [
     path("create", views.create_ticket, name="create_ticket"),
     path("login", views.login_request, name="login"),
     path("logout", views.logout_request, name= "logout"),
+    path("update/<str:pk>", views.update_ticket, name="update_ticket"),
 ]

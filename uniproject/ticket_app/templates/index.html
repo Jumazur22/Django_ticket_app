@@ -8,6 +8,7 @@
         {% comment %} Headings {% endcomment %}
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Issue Type</th>
                 <th>Issue Description</th>
                 <th>Date and Time</th>
@@ -16,9 +17,11 @@
         <tbody>
             {% for i in tickets %}
                 <tr>
+                    <td>{{i.id}}</td>
                     <td>{{i.issue_type}}</td>
                     <td>{{i.issue_description}}</td>
                     <td>{{i.date}}</td>
+                    <td><a class="btn btn-info" href="{% url 'update_ticket' i.id %}">Update</a></td>
                 </tr>
             {% endfor %}
         </tbody>
