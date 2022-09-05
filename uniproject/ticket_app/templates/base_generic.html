@@ -20,7 +20,12 @@
         <li>
             <a class="btn btn-ghost normal-case text-xl" href="{% url 'create_ticket' %}">Open a Case</a>
         </li>
-        
+        {% if request.user|ia:"admin" %}
+          <li>
+            <a class="btn btn-ghost normal-case text-xl" href="{% url "admin:index" %}">Admin dashboard</a>
+          </li>
+        {% endif %}
+
         {% if user.is_authenticated %}
         <div class="dropdown dropdown-end">  
           <label tabindex="0" class="btn btn-ghost btn-circle avatar">

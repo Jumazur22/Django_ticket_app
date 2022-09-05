@@ -21,5 +21,4 @@ from ticket_app import views
 urlpatterns = [
     #This is the root path of the app
     path('', include('ticket_app.urls')),
-    path('admin/', admin.site.urls),
 ]
