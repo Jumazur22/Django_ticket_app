@@ -1,16 +1,19 @@
 {% block content %}
-
 {% load crispy_forms_tags %}
 
-<h1>Login</h1>
+{% load static %}
+<link rel="stylesheet" href="{% static 'main.css' %}">
 
 {% if messages %}
-<ul class="messages">
-    {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-    {% endfor %}
-</ul>
+    <div class="alert">
+        {% for message in messages %}
+            <strong{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</strong>
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {% endfor %}
+    </div>
 {% endif %}
+
+<h1>Login</h1>
 
 <form method="POST">
     {% csrf_token %}

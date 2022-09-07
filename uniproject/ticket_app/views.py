@@ -20,11 +20,8 @@ def create_ticket(request):
     if form.is_valid():
         form.save()
         form = TicketForm()
-
-    context = {
-        'form' : form
-    }
-    return render(request, "create_ticket.html", context)
+        messages.success(request, "Ticket sent successfully")
+    return render(request, "create_ticket.html", context={"form":form})
 
 # This function checks if the form is being posted and if its valid
 # If so the info is saved and a user is created  and redirected to the homepage
@@ -33,8 +30,8 @@ def register_request(request):
         form = NewUserForm(request.POST)
         if form.is_valid():
             user =form.save()
-            login(request, user)#
-            messages.success(request, "Registration successful")
+            login(request, user)
+            messages.info(request, "Registration successful")
             return redirect("index")
         messages.info(request, "Unsuccessful registration. Invalid information")
     form = NewUserForm()
@@ -48,13 +45,9 @@ def login_request(request):
         if form.is_valid():
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
-            # adminusername = form.cleaned_data.get('admin')
-            # adminpassword = form.cleaned_data.get('admin123')
             user = authenticate(username=username , password=password)
-            # admin = authenticate(username=adminusername , password=adminpassword)
             if user is not None:
                 login(request, user )
-                messages.info(request, f"You are now logged in as {username}.")
                 return redirect("index")
             else:
                 messages.info(request, "Invalid username or password")
@@ -77,9 +70,7 @@ def update_ticket(request , pk):
     form = TicketForm(request.POST or None , instance=ticket)
     if form.is_valid():
         form.save()
+        messages.info(request, "Ticket updated successfully")
         form = TicketForm()
         return redirect("/index")
-    context = {
-        "form":form
-    }
-    return render(request, "create_ticket.html" ,context)
+    return render(request, "create_ticket.html" , context={"form":form})

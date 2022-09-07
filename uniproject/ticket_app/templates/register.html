@@ -1,7 +1,8 @@
+{% block content %}
+{% load crispy_forms_tags %}
+
 {% load static %}
 <link rel="stylesheet" href="{% static 'main.css' %}">
-
-{% block content %}
 
 {% if messages %}
     <div class="alert">
@@ -11,8 +12,6 @@
         {% endfor %}
     </div>
 {% endif %}
-
-{% load crispy_forms_tags %}
 
 <h1>Register</h1>
 

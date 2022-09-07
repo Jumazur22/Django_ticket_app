@@ -1,10 +1,10 @@
-.alert{
+.alert {
     padding: 20px;
     background-color: orange;
     color: white;
 }
   
-.closebtn{
+.closebtn {
     margin-left: 15px;
     color: white;
     font-weight: bold;
@@ -15,7 +15,7 @@
     transition: 0.3s;
 }
   
-.closebtn:hover{
+.closebtn:hover {
     color: black;
 }
 
