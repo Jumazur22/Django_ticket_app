@@ -20,12 +20,14 @@
         <li>
             <a class="btn btn-ghost normal-case text-xl" href="{% url 'create_ticket' %}">Open a Case</a>
         </li>
-        {% if request.user|ia:"admin" %}
+        {% comment %} If you login as admin the user can access the admin dashboard {% endcomment %}
+        {% if user.is_superuser %}
           <li>
             <a class="btn btn-ghost normal-case text-xl" href="{% url "admin:index" %}">Admin dashboard</a>
           </li>
         {% endif %}
-
+        
+        {% comment %} If authenticated as normal user then have access to all pages except admin dashboard {% endcomment %}
         {% if user.is_authenticated %}
         <div class="dropdown dropdown-end">  
           <label tabindex="0" class="btn btn-ghost btn-circle avatar">
