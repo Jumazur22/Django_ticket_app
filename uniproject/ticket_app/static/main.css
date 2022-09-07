@@ -1,14 +1,10 @@
-ul {
-    color:black;
-}
-
-.alert {
+.alert{
     padding: 20px;
     background-color: orange;
     color: white;
 }
   
-.closebtn {
+.closebtn{
     margin-left: 15px;
     color: white;
     font-weight: bold;
@@ -19,6 +15,11 @@ ul {
     transition: 0.3s;
 }
   
-.closebtn:hover {
+.closebtn:hover{
     color: black;
 }
+
+ul {
+    color:black;
+}
+
