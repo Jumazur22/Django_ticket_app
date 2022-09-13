@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>User</th>
                 <th>Issue Type</th>
                 <th>Issue Description</th>
                 <th>Date and Time</th>
@@ -19,6 +20,7 @@
             {% for i in tickets %}
                 <tr>
                     <td>{{i.id}}</td>
+                    <td>{{i.user}}</td>
                     <td>{{i.issue_type}}</td>
                     <td>{{i.issue_description}}</td>
                     <td>{{i.date}}</td>

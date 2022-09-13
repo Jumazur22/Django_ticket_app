@@ -18,7 +18,9 @@ def index(request):
 def create_ticket(request):
     form = TicketForm(request.POST or None)
     if form.is_valid():
-        form.save()
+        instance = form.save(commit=False)
+        instance.user = request.user
+        instance.save()
         form = TicketForm()
         messages.success(request, "Ticket sent successfully")
     return render(request, "create_ticket.html", context={"form":form})
@@ -29,7 +31,7 @@ def register_request(request):
     if request.method == "POST":
         form = NewUserForm(request.POST)
         if form.is_valid():
-            user =form.save()
+            user = form.save()
             login(request, user)
             messages.info(request, "Registration successful")
             return redirect("index")
